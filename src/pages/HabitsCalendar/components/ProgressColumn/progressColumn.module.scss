@@ -1,0 +1,24 @@
+.progressColumn {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  &:first-child {
+    gap: 0;
+  }
+
+  font-size: 0.85rem;
+
+  justify-content: flex-end;
+
+  &:first-child {
+    margin-left: 0px;
+  }
+
+  &-bar {
+    width: 15px;
+
+    align-self: center;
+  }
+}
