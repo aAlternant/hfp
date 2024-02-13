@@ -1,0 +1,72 @@
+@import '../../../../styles/variables.scss';
+
+.table {
+  display: grid;
+
+  grid-template-rows: repeat(2, calc(20 * $hPoint));
+
+  white-space: nowrap;
+
+  border: $border;
+
+  align-self: baseline;
+
+  width: max-content;
+
+  &__weeks {
+    display: grid;
+
+    grid-auto-flow: column;
+    grid-template-columns: repeat(4, calc(7 * 35 * $hPoint)) auto;
+
+    font-size: 0.85rem;
+
+    border-bottom: $border;
+
+    &-name {
+      border-right: $border;
+
+      &:last-child {
+        border-right: 0;
+      }
+
+      &:nth-child(5) {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  &__days {
+    grid-row: 2;
+    display: grid;
+
+    grid-auto-flow: column;
+
+    grid-auto-columns: calc(35 * $hPoint);
+
+    font-size: 0.85rem;
+
+    border-bottom: $border;
+
+    &-index {
+      border-right: $border;
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+
+  &__cellsRow {
+    display: grid;
+    grid-auto-columns: calc(35 * $hPoint);
+
+    grid-auto-flow: column;
+
+    border-bottom: $border;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}

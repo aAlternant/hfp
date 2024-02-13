@@ -1,0 +1,39 @@
+@import '../../../../styles/variables.scss';
+
+.habitsProgress {
+  display: grid;
+
+  grid-column: 3;
+  grid-row: 2;
+
+  grid-auto-rows: $rowWidth;
+
+  align-items: stretch;
+
+  border: $border;
+
+  &__item {
+    border-bottom: $border;
+
+    &:last-child {
+      border: 0;
+    }
+
+    padding: 0 calc(10 * $hPoint);
+    display: flex;
+    gap: 5%;
+    align-items: center;
+
+    font-size: 0.8rem;
+
+    white-space: nowrap;
+
+    &-percentage {
+      font-size: 1rem;
+    }
+
+    &-text {
+      padding-right: calc(10 * $hPoint);
+    }
+  }
+}

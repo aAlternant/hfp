@@ -1,0 +1,9 @@
+$hPoint: 0.09259vh;
+
+// TABLE
+$borderColor: rgba(
+  $color: #000000,
+  $alpha: 0.2,
+);
+$border: calc(1 * $hPoint) solid $borderColor;
+$rowWidth: calc(35 * $hPoint);

@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .body {
   font-family: 'Century Gothic';
 
@@ -13,9 +15,35 @@
   text-align: center;
 }
 
-.wrapper {
+.inner {
   width: 92.5vw;
   height: 87.5vh;
   background-color: white;
   box-shadow: 4px 4px 15.2px 4px rgba(0, 0, 0, 0.25);
+  padding: calc(20 * $hPoint) calc(50 * $hPoint);
+  display: grid;
+
+  grid-template-columns: 17% auto 15%;
+  grid-template-rows: 13.5% calc(40 * $hPoint);
+
+  grid-template-areas:
+    'date dailyProgress monthProgress'
+    'dialyHabits calendar habitsProgress';
+
+  align-items: stretch;
+
+  row-gap: calc(15 * $hPoint);
+  column-gap: calc(55 * $hPoint);
+}
+
+.content {
+  display: grid;
+
+  grid-column: dialyHabits/habitsProgress;
+
+  align-items: start;
+
+  grid-template-columns: subgrid;
+  grid-template-rows: calc(40 * $hPoint);
+  grid-auto-rows: $rowWidth;
 }

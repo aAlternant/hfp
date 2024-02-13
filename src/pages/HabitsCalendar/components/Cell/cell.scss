@@ -1,0 +1,16 @@
+@import '../../../../styles/variables.scss';
+.cell {
+  .pretty .state label::before {
+    border-color: transparent;
+  }
+
+  border-right: $border;
+
+  &:last-child {
+    border-right: 0;
+  }
+
+  .pretty {
+    margin-right: 0;
+  }
+}

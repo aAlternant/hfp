@@ -1,0 +1,38 @@
+@import '../../../../styles/variables.scss';
+
+.dialyHabits {
+  display: grid;
+  grid-template-rows: calc(40 * $hPoint);
+  grid-auto-rows: $rowWidth;
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+
+  &-title {
+    font-weight: normal;
+    font-size: 1rem;
+
+    align-self: center;
+  }
+
+  &__habit {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    align-items: center;
+
+    padding: 2% 3%;
+
+    &-icon {
+      align-self: center;
+      height: calc(25 * $hPoint);
+    }
+
+    &-name {
+      margin-left: calc(10 * $hPoint);
+    }
+
+    &-status {
+      margin-left: auto;
+    }
+  }
+}
