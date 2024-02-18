@@ -3,7 +3,12 @@ import styles from './CalendarHeader.module.scss';
 import { ProgressColumn } from '../ProgressColumn/ProgressColumn';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 
-export const CalendarHeader = ({ monthProgress, daysProgress }) => {
+export const CalendarHeader = ({
+  monthProgress,
+  daysProgress,
+  countOfHabitsDays,
+  countOfCompletedHabitsDays,
+}) => {
   const colors = {
     perfect: '#72FF78',
     good: '#FFABAB',
@@ -63,7 +68,7 @@ export const CalendarHeader = ({ monthProgress, daysProgress }) => {
       <div className={styles['header__sumstats']}>
         <div className={styles['header__sumstats__progress']}>
           <h2 className={styles['header__sumstats__progress-title']}>progress</h2>
-          <p className={styles['header__sumstats__progress-value']}>99.9%</p>
+          <p className={styles['header__sumstats__progress-value']}>{monthProgress}%</p>
         </div>
 
         {/* Circular statistic  */}
@@ -86,7 +91,9 @@ export const CalendarHeader = ({ monthProgress, daysProgress }) => {
               },
             }}>
             <h3 className={styles['header__sumstats__circular__score-title']}>Score</h3>
-            <p className={styles['header__sumstats__circular__score-value']}>100/100</p>
+            <p className={styles['header__sumstats__circular__score-value']}>
+              {countOfCompletedHabitsDays}/{countOfHabitsDays}
+            </p>
           </CircularProgressbarWithChildren>
         </div>
       </div>

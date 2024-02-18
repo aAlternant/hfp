@@ -10,7 +10,7 @@
   text-align: center;
 
   &__inner {
-    height: 80vh;
+    min-height: 80vh;
     width: 45vw;
 
     background-color: white;
@@ -109,5 +109,20 @@
     font-size: 1.9rem !important;
 
     cursor: pointer;
+
+    padding-bottom: 30px;
+  }
+}
+
+.error {
+  font-size: 1rem;
+  color: rgba($color: #b10000, $alpha: 1);
+
+  margin-bottom: 5%;
+
+  display: none;
+
+  &.active {
+    display: block;
   }
 }

@@ -4,12 +4,13 @@ import './cell.scss';
 
 export const Cell = ({ isActivated, setStatus }) => {
   const changeHandler = () => {
-    // setStatus(!isActivated);
+    setStatus(!isActivated);
   };
 
   return (
     <div className="cell">
       <Checkbox
+        defaultChecked={isActivated}
         onChange={changeHandler}
         animation="smooth"
         style={{

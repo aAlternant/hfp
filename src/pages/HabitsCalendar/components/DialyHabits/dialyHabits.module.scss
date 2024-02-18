@@ -35,4 +35,22 @@
       margin-left: auto;
     }
   }
+
+  &__add {
+    border-top: $border;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    gap: calc(8 * $hPoint);
+
+    b {
+      font-size: 1.8em;
+
+      font-weight: 500;
+    }
+  }
 }

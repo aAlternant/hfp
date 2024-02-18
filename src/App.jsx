@@ -8,10 +8,10 @@ export const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<HabitsCalendar />} />
+        <Route path="/" element={<Home />} />
         <Route path="login" element={<Auth loginButton={true} />} />
         <Route path="register" element={<Auth />} loginButton={false} />
-        {/* <Route path="habits-calendar" element={<HabitsCalendar />} /> */}
+        <Route path="habits-calendar" element={<HabitsCalendar />} />
       </Routes>
     </>
   );

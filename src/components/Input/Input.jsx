@@ -1,10 +1,10 @@
 import styles from './input.module.scss';
 
-export const Input = ({ text, type, icon }) => {
+export const Input = ({ text, type, icon, isRequired = false }) => {
   return (
     <div className={styles['input']}>
-      <i className={icon}></i>
-      <input type={type ? type : 'text'} placeholder={text} />
+      {icon && <i className={icon}></i>}
+      <input type={type ? type : 'text'} placeholder={text} name={text} required={isRequired} />
     </div>
   );
 };
