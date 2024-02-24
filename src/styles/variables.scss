@@ -7,3 +7,9 @@ $borderColor: rgba(
 );
 $border: calc(1 * $hPoint) solid $borderColor;
 $rowWidth: calc(35 * $hPoint);
+
+%common-modal {
+  border: calc(1 * $hPoint) solid rgba(0, 0, 0, 0.5);
+  border-radius: calc(10 * $hPoint);
+  box-shadow: 0 calc(4 * $hPoint) calc(4 * $hPoint) 0 rgba(0, 0, 0, 0.25);
+}

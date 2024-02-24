@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './table.module.scss';
 import { Cell } from '../Cell/Cell.jsx';
 
-export const Table = ({ days, habits, setDays }) => {
+export const Table = ({ days, habits, setDays, setIsChangesNotSaved }) => {
   const changeCellStatus = (cIdx, hId) => {
     const newDays = [...days];
 
@@ -48,7 +48,13 @@ export const Table = ({ days, habits, setDays }) => {
       </div>
       <div className={styles['table__days']}>
         {days.map((day) => (
-          <span className={styles['table__days-index']}>{day.date}</span>
+          <span
+            className={styles['table__days-index']}
+            style={{
+              backgroundColor: new Date().getDate() === day.date ? '#98DCC3 ' : 'transparent',
+            }}>
+            {day.date}
+          </span>
         ))}
       </div>
 
@@ -56,8 +62,10 @@ export const Table = ({ days, habits, setDays }) => {
         <div className={styles['table__cellsRow']}>
           {days.map((day) => (
             <Cell
+              key={`${day.date}-${habit.id}`}
               isActivated={day.completedHabits.includes(habit.id)}
               setStatus={() => changeCellStatus(day.date - 1, habit.id)}
+              setIsChangesNotSaved={setIsChangesNotSaved}
             />
           ))}
         </div>

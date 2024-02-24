@@ -20,11 +20,33 @@
     display: flex;
     align-items: center;
 
+    position: relative;
+
     padding: 2% 3%;
+
+    &-delete {
+      position: absolute;
+
+      left: calc(-35 * $hPoint);
+      cursor: pointer;
+
+      opacity: 0;
+
+      transition: opacity 0.2s ease-in-out;
+
+      color: red;
+
+      &:hover {
+        opacity: 0.2;
+      }
+    }
 
     &-icon {
       align-self: center;
       height: calc(25 * $hPoint);
+      width: calc(25 * $hPoint);
+
+      cursor: pointer;
     }
 
     &-name {
@@ -33,6 +55,40 @@
 
     &-status {
       margin-left: auto;
+      height: calc(25 * $hPoint);
+      width: calc(25 * $hPoint);
+    }
+
+    &__iconsModal {
+      @extend %common-modal;
+
+      z-index: 10;
+
+      position: absolute;
+      overflow-y: scroll;
+
+      background-color: white;
+
+      display: flex;
+      flex-wrap: wrap;
+      top: calc(34 * $hPoint);
+      left: calc(-35 * $hPoint);
+      gap: calc(12 * $hPoint);
+
+      padding: calc(8 * $hPoint);
+
+      max-width: calc(120 * $hPoint);
+      max-height: calc(100 * $hPoint);
+
+      &-element {
+        width: calc(25 * $hPoint);
+        align-items: center;
+        cursor: pointer;
+      }
+
+      &-icon {
+        height: calc(20 * $hPoint);
+      }
     }
   }
 
@@ -52,5 +108,9 @@
 
       font-weight: 500;
     }
+  }
+
+  &__input {
+    padding-left: 3%;
   }
 }

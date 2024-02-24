@@ -16,7 +16,7 @@ export const CalendarHeader = ({
     default: '#D9D9D9',
   };
 
-  // Placeholder Genarator
+  const date = new Date();
 
   // Colors
 
@@ -36,12 +36,14 @@ export const CalendarHeader = ({
   return (
     <header className={styles.header}>
       <div className={styles['header__date']}>
-        <h1 className={styles['header__date-month']}>January</h1>
+        <h1 className={styles['header__date-month']}>
+          {date.toLocaleString('en-US', { month: 'long' })}
+        </h1>
         <div className={styles['header__date__selectors']}>
           <div className={styles['header__date__selectors__selector']}>
             <h2 className={styles['header__date__selectors__selector-name']}>Month</h2>
             <div className={styles['header__date__selectors__selector-menu']}>
-              <span>Jan</span>
+              <span>{date.toLocaleString('en-US', { month: 'short' })}</span>
               <div
                 className={`${styles['header__date__selectors__selector-arrow']} ${styles['--up']}`}
               />
@@ -50,7 +52,7 @@ export const CalendarHeader = ({
           <div className={styles['header__date__selectors__selector']}>
             <h2 className={styles['header__date__selectors__selector-name']}>Year</h2>
             <div className={styles['header__date__selectors__selector-menu']}>
-              <span>2024</span>
+              <span>{date.toLocaleString('en-US', { year: 'numeric' })}</span>
               <div
                 className={`${styles['header__date__selectors__selector-arrow']} ${styles['--up']}`}
               />

@@ -66,11 +66,7 @@ export const Home = () => {
           </h2>
           <div className={styles['reg-box']}>
             <div className={styles['reg-box__input-box']}>
-              <img
-                src="/icons/envelope-solid.svg"
-                alt="Icon"
-                style={{ opacity: 0.7, height: 28 }}
-              />
+              <img src="/icons/mail.svg" alt="Icon" style={{ opacity: 0.7, height: 28 }} />
               <input
                 type="email"
                 name="email"

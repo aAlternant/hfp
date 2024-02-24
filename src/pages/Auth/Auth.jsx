@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import styles from './auth.module.scss';
 import { Input } from '../../components/Input/Input';
 import { Link, useNavigate } from 'react-router-dom';
@@ -20,7 +20,7 @@ export const Auth = ({ loginButton }) => {
         passwordConfirm,
       });
 
-      return navigate('/users/habits-calendar');
+      return navigate('/habits-calendar');
     } catch (error) {
       setError(error.response.data.message);
     }

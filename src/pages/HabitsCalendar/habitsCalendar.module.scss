@@ -25,6 +25,8 @@
   padding: calc(20 * $hPoint) calc(50 * $hPoint);
   display: grid;
 
+  position: relative;
+
   grid-template-columns: 17% auto 15%;
   grid-template-rows: 13.5% calc(40 * $hPoint);
 
@@ -48,4 +50,13 @@
   grid-template-columns: subgrid;
   grid-template-rows: calc(40 * $hPoint);
   grid-auto-rows: $rowWidth;
+}
+
+.nav {
+  position: absolute;
+  top: 1%;
+  left: 1.5%;
+  opacity: 0.5;
+
+  cursor: pointer;
 }

@@ -1,0 +1,77 @@
+@import '../../styles/variables.scss';
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+.saveWarning {
+  @extend %common-modal;
+
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 12.5%;
+
+  width: calc(500 * $hPoint);
+  height: calc(90 * $hPoint);
+
+  font-size: 1.2rem;
+
+  padding: 0 calc(25 * $hPoint);
+
+  align-items: center;
+  text-align: start;
+
+  white-space: wrap;
+
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+
+  &-btn {
+    width: 50%;
+    height: 75%;
+
+    border-radius: calc(10 * $hPoint);
+
+    font-weight: bold;
+    font-size: 1.3rem;
+
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    background: #3bd82db3;
+  }
+
+  &.slideIn {
+    animation-name: slideIn;
+  }
+
+  &.slideOut {
+    animation-name: slideOut;
+  }
+}

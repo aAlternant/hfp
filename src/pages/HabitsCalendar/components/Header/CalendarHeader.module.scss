@@ -9,6 +9,8 @@
   &__date {
     display: flex;
     flex-direction: column;
+
+    user-select: auto;
     &-month {
       font-size: 2.5rem;
       font-weight: 700;
