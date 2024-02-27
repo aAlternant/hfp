@@ -14,7 +14,8 @@ export const ProgressColumn = ({ progress, colors }) => {
     } else {
       setBarColor(colors.default);
     }
-  }, [progress, colors.good, colors.perfect, colors.well, colors.default]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [progress]);
 
   const barStyle = {
     height: `${progress}%`,

@@ -18,13 +18,47 @@ export const HabitsCalendar = () => {
   const navigate = useNavigate();
   const baseUrl = '/habits-calendar';
 
+  const colors = {
+    green: '#0E9E50',
+    red: '#AC3015',
+    orange: '#DBA10F',
+  };
+
+  const headerColors = {
+    perfect: '#72FF78',
+    good: '#FFABAB',
+    well: '#71C4FF',
+    default: '#D9D9D9',
+  };
+
+  const iconsList = [
+    { name: 'reading', url: 'habitsCalendar/icons/reading.svg' },
+    { name: 'mail', url: 'habitsCalendar/icons/mail.svg' },
+    { name: 'languages', url: 'habitsCalendar/icons/languages.svg' },
+    { name: 'running', url: 'habitsCalendar/icons/running.svg' },
+    { name: 'meditation', url: 'habitsCalendar/icons/meditation.svg' },
+    { name: 'sport', url: 'habitsCalendar/icons/sport.svg' },
+    { name: 'healtyfood', url: 'habitsCalendar/icons/healtyfood.svg' },
+    { name: 'gym', url: 'habitsCalendar/icons/gym.svg' },
+    { name: 'bed', url: 'habitsCalendar/icons/bed.svg' },
+  ];
+
   const getData = async () => {
     try {
       const respData = await axios.post(baseUrl);
       const { data } = respData.data;
 
-      setDays(data.days);
-      setHabits(data.habits);
+      if (data.days) {
+        setDays(data.days);
+      } else {
+        setDays([]);
+      }
+
+      if (data.habits) {
+        setHabits(data.habits);
+      } else {
+        setHabits([]);
+      }
     } catch (error) {
       console.log(error);
       return navigate('/login');
@@ -148,6 +182,7 @@ export const HabitsCalendar = () => {
           countOfHabitsDays={habits.length * days.length}
           countOfCompletedHabitsDays={countOfCompletedHabitsDays}
           monthProgress={monthProgress}
+          colors={headerColors}
         />
         <section className={styles.content}>
           <DialyHabits
@@ -155,6 +190,7 @@ export const HabitsCalendar = () => {
             addHabitInState={addHabitInState}
             removeHabitFromState={removeHabitFromState}
             handleHabitNameChange={handleHabitNameChange}
+            iconsList={iconsList}
           />
           <Table
             days={days}
@@ -162,7 +198,7 @@ export const HabitsCalendar = () => {
             habits={habits}
             setIsChangesNotSaved={setIsChangesNotSaved}
           />
-          <HabitsProgress habitsProgress={habitsProgress} />
+          <HabitsProgress habitsProgress={habitsProgress} colors={colors} />
         </section>
       </div>
     </div>

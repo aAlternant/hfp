@@ -8,14 +8,8 @@ export const CalendarHeader = ({
   daysProgress,
   countOfHabitsDays,
   countOfCompletedHabitsDays,
+  colors,
 }) => {
-  const colors = {
-    perfect: '#72FF78',
-    good: '#FFABAB',
-    well: '#71C4FF',
-    default: '#D9D9D9',
-  };
-
   const date = new Date();
 
   // Colors
@@ -30,7 +24,7 @@ export const CalendarHeader = ({
     } else {
       setPathColor(colors.default);
     }
-  }, [monthProgress, colors.good, colors.perfect, colors.well, colors.default]);
+  }, [monthProgress, colors]);
 
   const [pathColor, setPathColor] = React.useState(colors.default);
   return (

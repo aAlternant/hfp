@@ -8,6 +8,7 @@ export const DialyHabits = ({
   addHabitInState,
   removeHabitFromState,
   handleHabitNameChange,
+  iconsList,
 }) => {
   const [isInputVisible, setIsInputVisible] = React.useState(false);
   const [newHabit, setNewHabit] = React.useState('');
@@ -15,18 +16,6 @@ export const DialyHabits = ({
   const inputRef = React.useRef(null);
 
   const validInputRedexp = /^[a-zA-Zа-яА-ЯґҐєЄіІїЇ0-9_.\-!? ]*$/u;
-
-  const iconsList = [
-    { name: 'reading', url: 'habitsCalendar/icons/reading.svg' },
-    { name: 'mail', url: 'habitsCalendar/icons/mail.svg' },
-    { name: 'languages', url: 'habitsCalendar/icons/languages.svg' },
-    { name: 'running', url: 'habitsCalendar/icons/running.svg' },
-    { name: 'meditation', url: 'habitsCalendar/icons/meditation.svg' },
-    { name: 'sport', url: 'habitsCalendar/icons/sport.svg' },
-    { name: 'healtyfood', url: 'habitsCalendar/icons/healtyfood.svg' },
-    { name: 'gym', url: 'habitsCalendar/icons/gym.svg' },
-    { name: 'bed', url: 'habitsCalendar/icons/bed.svg' },
-  ];
 
   const showRedEffectWarning = () => {
     inputRef.current.style.outlineColor = 'red';

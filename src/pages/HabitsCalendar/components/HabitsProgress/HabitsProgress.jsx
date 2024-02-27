@@ -1,13 +1,7 @@
 import React from 'react';
 import styles from './habitsProgress.module.scss';
 
-export const HabitsProgress = ({ habitsProgress }) => {
-  const colors = {
-    green: '#0E9E50',
-    red: '#AC3015',
-    orange: '#DBA10F',
-  };
-
+export const HabitsProgress = ({ habitsProgress, colors }) => {
   return (
     <div className={styles.habitsProgress}>
       {habitsProgress.map((habit) => {

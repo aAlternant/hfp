@@ -11,13 +11,13 @@ export const Home = () => {
           <h2 className={styles.slogan}>Достигай целей используя привычки</h2>
           <div className={styles.quote}>
             <img src="/images/james_klir_avatar.svg" alt="Портер" className={styles['quote-img']} />
-            <span className={styles['quote-text']}>
+            <quote className={styles['quote-text']}>
               Это простой двухступенчатый процесс: <br />
               1. Решите, каким человеком хотите быть. <br /> 2. Докажите себе, что вы и есть такой
               человек, с помощью малых достижений. <br />
               <br />
               Джеймс Клир <br /> “Атомные Привычки”
-            </span>
+            </quote>
             <span className={styles['quote-quotes']}>“</span>
           </div>
         </div>
