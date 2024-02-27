@@ -3,9 +3,10 @@ import styles from '../DialyHabits/dialyHabits.module.scss';
 import { X } from 'react-feather';
 import axios from '../../../../api/axios';
 
-export const Habit = ({ iconsList, habit, handleHabitDeleteClick }) => {
+export const Habit = ({ iconsList, habit, handleHabitDeleteClick, handleHabitNameChange }) => {
   const [isIconChangeModalActive, setIsIconChangeModalActive] = React.useState(false);
   const [activeIcon, setActiveIcon] = React.useState(habit.icon);
+
   const changeIconHandler = async (name) => {
     try {
       const reqAnswer = await axios.patch('/habits-calendar/change-habit-icon', {

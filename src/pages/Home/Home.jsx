@@ -1,5 +1,6 @@
 import { Header } from '../../components/Header/Header';
 import styles from './home.module.scss';
+import React from 'react';
 
 export const Home = () => {
   return (
@@ -43,11 +44,7 @@ export const Home = () => {
               </p>
             </div>
           </div>
-          <img
-            className={styles.images}
-            src="https://placehold.co/600x400/png"
-            alt="Demonstration"
-          />
+          <img className={styles.images} src="/images/habitscalendar.png" alt="Demonstration" />
         </div>
         <div className={styles['dots-block']}>
           <p className={styles['slide-name']}>Habits Calendar</p>
@@ -66,7 +63,11 @@ export const Home = () => {
           </h2>
           <div className={styles['reg-box']}>
             <div className={styles['reg-box__input-box']}>
-              <img src="/icons/mail.svg" alt="Icon" style={{ opacity: 0.7, height: 28 }} />
+              <img
+                src="/habitsCalendar/icons/mail.svg"
+                alt="Icon"
+                style={{ opacity: 0.7, height: 28 }}
+              />
               <input
                 type="email"
                 name="email"

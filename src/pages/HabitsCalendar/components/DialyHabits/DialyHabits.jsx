@@ -3,20 +3,42 @@ import styles from './dialyHabits.module.scss';
 import axios from '../../../../api/axios';
 import { Habit } from '../Habit/Habit';
 
-export const DialyHabits = ({ habits, addHabitInState, removeHabitFromState }) => {
+export const DialyHabits = ({
+  habits,
+  addHabitInState,
+  removeHabitFromState,
+  handleHabitNameChange,
+}) => {
   const [isInputVisible, setIsInputVisible] = React.useState(false);
   const [newHabit, setNewHabit] = React.useState('');
 
   const inputRef = React.useRef(null);
 
+  const validInputRedexp = /^[a-zA-Zа-яА-ЯґҐєЄіІїЇ0-9_.\-!? ]*$/u;
+
   const iconsList = [
-    { name: 'book', url: 'habitsCalendar/icons/book.svg' },
+    { name: 'reading', url: 'habitsCalendar/icons/reading.svg' },
     { name: 'mail', url: 'habitsCalendar/icons/mail.svg' },
     { name: 'languages', url: 'habitsCalendar/icons/languages.svg' },
     { name: 'running', url: 'habitsCalendar/icons/running.svg' },
+    { name: 'meditation', url: 'habitsCalendar/icons/meditation.svg' },
+    { name: 'sport', url: 'habitsCalendar/icons/sport.svg' },
+    { name: 'healtyfood', url: 'habitsCalendar/icons/healtyfood.svg' },
+    { name: 'gym', url: 'habitsCalendar/icons/gym.svg' },
+    { name: 'bed', url: 'habitsCalendar/icons/bed.svg' },
   ];
 
+  const showRedEffectWarning = () => {
+    inputRef.current.style.outlineColor = 'red';
+    setTimeout(() => {
+      inputRef.current.style.outlineColor = 'black';
+    }, 500);
+  };
+
   const addNewHabit = async (name) => {
+    if (name.length < 1) {
+      return showRedEffectWarning();
+    }
     try {
       const reqAnser = await axios.patch('/habits-calendar/add-habit', {
         name,
@@ -43,11 +65,9 @@ export const DialyHabits = ({ habits, addHabitInState, removeHabitFromState }) =
 
   const handleHabitInputChanging = (e) => {
     let text = e.target.value;
-    if (text.length > 12 || !text.match(/^[a-zA-Zа-яА-ЯґҐєЄіІїЇ0-9_.\-!? ]*$/u)) {
-      inputRef.current.style.outlineColor = 'red';
-      return setTimeout(() => {
-        inputRef.current.style.outlineColor = 'black';
-      }, 500);
+    if (text.length > 12 || !text.match(validInputRedexp)) {
+      e.preventDefault();
+      return showRedEffectWarning();
     }
 
     setNewHabit(text);
@@ -81,6 +101,7 @@ export const DialyHabits = ({ habits, addHabitInState, removeHabitFromState }) =
           habit={habit}
           iconsList={iconsList}
           handleHabitDeleteClick={handleHabitDeleteClick}
+          handleHabitNameChange={(name) => handleHabitNameChange(habit.id, name)}
         />
       ))}
       <input

@@ -14,6 +14,7 @@ export const HabitsCalendar = () => {
   const [habits, setHabits] = React.useState([]);
   const [isChangesNotSaved, setIsChangesNotSaved] = React.useState(false);
   const [isSavePending, setIsSavePending] = React.useState(false);
+
   const navigate = useNavigate();
   const baseUrl = '/habits-calendar';
 
@@ -61,7 +62,6 @@ export const HabitsCalendar = () => {
       });
 
       const newDays = reqAnwer.data.data;
-      console.log(newDays);
 
       setDays(newDays);
       setIsChangesNotSaved(false);
@@ -69,6 +69,11 @@ export const HabitsCalendar = () => {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleHabitNameChange = (id, name) => {
+    const newHabits = habits.map((habit) => (habit.id === id ? { ...habit, name: name } : habit));
+    setHabits(newHabits);
   };
 
   const daysCompletionPercentages = days.map((day) => {
@@ -92,9 +97,29 @@ export const HabitsCalendar = () => {
     const completedDays = days.filter((day) => day.completedHabits.includes(habit.id));
     const percentage = Math.floor((completedDays.length / days.length) * 100);
 
+    let text;
+
+    switch (true) {
+      case percentage === 100:
+        text = "You're amazing!";
+        break;
+      case percentage >= 75:
+        text = "You're succeeding!";
+        break;
+      case percentage > 50:
+        text = "You're doing a great job";
+        break;
+      case percentage > 25:
+        text = "You're on the right track";
+        break;
+      default:
+        text = 'Every action is progress';
+        break;
+    }
+
     return {
       percentage,
-      text: "You're doing a great job",
+      text,
     };
   });
 
@@ -129,6 +154,7 @@ export const HabitsCalendar = () => {
             habits={habits}
             addHabitInState={addHabitInState}
             removeHabitFromState={removeHabitFromState}
+            handleHabitNameChange={handleHabitNameChange}
           />
           <Table
             days={days}
